@@ -3,11 +3,11 @@
 @section('content')
 <div class="default-content">
     <div class="sheet boxShadow1">
-        {!! Form::open(array('url'=>url('articles/create'), 'class'=>'default write')) !!}
         <header>
             <h2>Rédiger un nouvel article</h2>
             <hr>
         </header>
+        {!! Form::open(array('url'=>url('articles/create'), 'class'=>'default write')) !!}
         <div class="group {{ $errors->has('titre') ? 'error' : '' }}">      
             <input type="text" required name="titre" value="{{ old('titre') }}">
             <label>Titre</label>

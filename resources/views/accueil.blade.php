@@ -2,7 +2,7 @@
 @section('titrePage', 'Mapen - Accueil')
 @section('content')
 <div class="head">
-    <h2 class="today">Actualités du Jeudi 20 Mars 2015</h2>
+    <h2 class="today">Actualités du </h2>
     @if(Auth::check())
     <a href="{{url('/articles/write') }}" class="more buttonNew boxShadow2">&#9997;</a>
     @else
@@ -39,7 +39,7 @@
                     <hr>
                 </div>
                 <div>
-                    <p>{{ $article->like }} avis positifs</p>
+                    <div id="heart"><p>{{ $article->like }}</p></div>
                 </div>
             </div>
         </header>

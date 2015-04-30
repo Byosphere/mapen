@@ -2,6 +2,7 @@
 
 use App\Models\Articles;
 use App\User;
+use Carbon\Carbon;
 
 class HomeController extends Controller {
 
@@ -25,6 +26,7 @@ class HomeController extends Controller {
 		$articles = Articles::orderBy('id', 'desc')->paginate(6);
 		$articles->setPath('home');
 		$users = User::get();
+		
 		return view('accueil')->with(['articles' => $articles, 'users'=> $users]);
 	}
 

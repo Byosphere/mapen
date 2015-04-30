@@ -145,6 +145,7 @@ button.fake {
 }
 
 .contentWriter {min-height: 400px}
+
 /* ==========================================================================
    Browse Happy prompt
    ========================================================================== */
@@ -497,6 +498,11 @@ aside .author {
 
 }
 
+.default-content header {
+    
+    margin-bottom: 2rem;
+}
+
 .listeArticles {
 
     padding: 0 1rem;
@@ -691,10 +697,6 @@ article .footer {
 /* ==========================================================================
    Formulaires
    ========================================================================== */
-form header {
-
-    margin-bottom: 2rem;
-}
 
 .group, .textarea {
 
@@ -760,7 +762,7 @@ form.write input[type=submit] {
 
     border: none;
     position: absolute;
-    bottom: -38px;
+    bottom: -70px;
     left: 50%;
     margin-left: -40px;
     width: 80px;
@@ -805,6 +807,33 @@ span.errors {
 
     border-bottom:1px solid red;
 }
+/* ==========================================================================
+   Liste news
+   ========================================================================== */
+   
+   table {
+       
+    border-spacing: 2px;
+    border-color: gray;
+    width: 100%;    
+   }
+   
+   thead {
+       
+        text-align: left;
+        display: table-header-group;
+        vertical-align: middle;
+        border-color: inherit;
+        border-bottom: 1px solid #d0d0d0;
+   }
+   
+    td, th {
+        padding: 15px 5px;
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+        border-radius: 2px;
+    }
 
 /* ==========================================================================
    footer
