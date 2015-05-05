@@ -89,11 +89,11 @@ class ArticleController extends Controller {
 			$article = Articles::create([
 				'titre' => Request::input('titre'),
 				'soustitre' => Request::input('soustitre'),
-				'author' => $user->name,
 				'contenu' => Request::input('contenu'),
 				'slug' => Str::slug(Request::input('titre')),
 				'chapo'=> Request::input('chapo'),
 			]);
+			$article->user()->associate($user);
 			$article->save();
 			return redirect('/articles/'.$user->id.'/mylist');
 		}

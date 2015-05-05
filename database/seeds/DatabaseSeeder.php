@@ -16,80 +16,73 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		User::create([
-			'email' => 'dreamlike.swarm@gmail.com',
-			'name' => 'Yohann',
-			'password' =>  \Hash::make('admin'),
-			]);
+//		User::create([
+//			'email' => 'dreamlike.swarm@gmail.com',
+//			'name' => 'Yohann',
+//			'password' =>  \Hash::make('admin'),
+//			]);
 
 		Articles::create([
 			'titre' => 'Un titre',
-			'author' => 'Yohann',
+			'user_id' => 1,
 			'contenu' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex. Aenean finibus diam et pharetra eleifend. Duis condimentum nunc condimentum dictum mattis. Vestibulum eu nulla dui. Nam euismod leo vel nisi luctus ullamcorper. Pellentesque pellentesque luctus nunc, non rhoncus nisl porta et. Duis fringilla sollicitudin diam, sodales semper sem condimentum ac. Donec dignissim dolor quam, nec mollis nisi cursus vulputate. Vivamus at metus a sem scelerisque tristique quis ut sapien. Sed pretium porta justo sed convallis. Aenean feugiat orci sit amet leo condimentum, at elementum ipsum efficitur.',
 			'chapo' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex.',
 			'soustitre' => "Soustitre",
-			'slug' => 'un-titre',
-			'like' => 5
+			'slug' => 'un-titre'
 			]);
 
 		Articles::create([
 			'titre' => 'Une autre News',
-			'author' => 'Yohann',
+			'user_id' => 1,
 			'contenu' => 'Lorem ipsum Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex. Aenean finibus diam et pharetra eleifend. Duis condimentum nunc condimentum dictum mattis. Vestibulum eu nulla dui. Nam euismod leo vel nisi luctus ullamcorper. Pellentesque pellentesque luctus nunc, non rhoncus nisl porta et. Duis fringilla sollicitudin diam, sodales semper sem condimentum ac. Donec dignissim dolor quam, nec mollis nisi cursus vulputate. Vivamus at metus a sem scelerisque tristique quis ut sapien. Sed pretium porta justo sed convallis. Aenean feugiat orci sit amet leo condimentum, at elementum ipsum efficitur.',
 			'chapo' => 'Lorem ipsum consectetur adipiscing elit. Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex. Bla balbalbalbal',
 			'soustitre' => "Soustitre",
-			'slug' => 'une-autre-news',
-			'like' => 0
+			'slug' => 'une-autre-news'
 			]);
 
 		Articles::create([
 			'titre' => 'Un petit truc',
-			'author' => 'Yohann',
+			'user_id' => 1,
 			'contenu' => 'Lorem iet, consectetur adipiscing elit. Vivampsum dolor sit aet, consectetur adipiscing elit. Vivamctetur adipiscing elit. Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex. Aenean finibus diam et pharetra eleifend. Duis condimentum nunc condimentum dictum mattis. Vestibulum eu nulla dui. Nam euismod leo vel nisi luctus ullamcorper. Pellentesque pellentesque luctus nunc, non rhoncus nisl porta et. Duis fringilla sollicitudin diam, sodales semper sem condimentum ac. Donec dignissim dolor quam, nec mollis nisi cursus vulputate. Vivamus at metus a sem scelerisque tristique quis ut sapien. Sed pretium porta justo sed convallis. Aenean feugiat orci sit amet leo condimentum, at elementum ipsum efficitur.',
 			'chapo' => 'Lorem ipsum dolor et, consectetur adipiscing elit. Vivam consectetur adipiscing elit. Vivam euismod arcu vitae finibus. Curabitur sit amet lacinia ex.',
 			'soustitre' => "Soustitre",
-			'slug' => 'un-petit-truc',
-			'like' => 3,
+			'slug' => 'un-petit-truc'
 			]);
 
 		Articles::create([
 			'titre' => 'Article exemple assez long',
-			'author' => 'Yohann',
+			'user_id' => 1,
 			'contenu' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex. Aenean finibus diam et pharetra eleifend. Duis condimentum nunc condimentum dictum mattis. Vestibulum eu nulla dui. Nam euismod leo vel nisi luctus ullamcorper. Pellentesque pellentesque luctus nunc, non rhoncus nisl porta et. Duis fringilla sollicitudin diam, sodales semper sem condimentum ac. Donec dignissim dolor quam, nec mollis nisi cursus vulputate. Vivamus at metus a sem scelerisque tristique quis ut sapien. Sed pretium porta justo sed convallis. Aenean feugiat orci sit amet leo condimentum, at elementum ipsum efficitur.',
 			'chapo' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex.',
 			'soustitre' => "Soustitre",
-			'slug' => 'un-titre',
-			'like' => 5
+			'slug' => 'un-titre'
 			]);
 
 		Articles::create([
 			'titre' => 'Un autre',
-			'author' => 'Yohann',
+			'user_id' => 1,
 			'contenu' => 'Lorem ipsum Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex. Aenean finibus diam et pharetra eleifend. Duis condimentum nunc condimentum dictum mattis. Vestibulum eu nulla dui. Nam euismod leo vel nisi luctus ullamcorper. Pellentesque pellentesque luctus nunc, non rhoncus nisl porta et. Duis fringilla sollicitudin diam, sodales semper sem condimentum ac. Donec dignissim dolor quam, nec mollis nisi cursus vulputate. Vivamus at metus a sem scelerisque tristique quis ut sapien. Sed pretium porta justo sed convallis. Aenean feugiat orci sit amet leo condimentum, at elementum ipsum efficitur.',
 			'chapo' => 'Lorem ipsum consectetur adipiscing elit. Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex. Bla balbalbalbal',
 			'soustitre' => "Soustitre",
-			'slug' => 'une-autre-news',
-			'like' => 0
+			'slug' => 'une-autre-news'
 			]);
 
 		Articles::create([
 			'titre' => 'Blablalba',
-			'author' => 'Yohann',
+			'user_id' => 1,
 			'contenu' => 'Lorem iet, consectetur adipiscing elit. Vivampsum dolor sit aet, consectetur adipiscing elit. Vivamctetur adipiscing elit. Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex. Aenean finibus diam et pharetra eleifend. Duis condimentum nunc condimentum dictum mattis. Vestibulum eu nulla dui. Nam euismod leo vel nisi luctus ullamcorper. Pellentesque pellentesque luctus nunc, non rhoncus nisl porta et. Duis fringilla sollicitudin diam, sodales semper sem condimentum ac. Donec dignissim dolor quam, nec mollis nisi cursus vulputate. Vivamus at metus a sem scelerisque tristique quis ut sapien. Sed pretium porta justo sed convallis. Aenean feugiat orci sit amet leo condimentum, at elementum ipsum efficitur.',
 			'chapo' => 'Lorem ipsum dolor et, consectetur adipiscing elit. Vivam consectetur adipiscing elit. Vivam euismod arcu vitae finibus. Curabitur sit amet lacinia ex.',
 			'soustitre' => "Soustitre",
-			'slug' => 'un-petit-truc',
-			'like' => 3,
+			'slug' => 'un-petit-truc'
 			]);
 
 		Articles::create([
 			'titre' => 'lqmjdsmqkdmq',
-			'author' => 'Yohann',
+			'user_id' => 1,
 			'contenu' => 'Lorem iet, consectetur adipiscing elit. Vivampsum dolor sit aet, consectetur adipiscing elit. Vivamctetur adipiscing elit. Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex. Aenean finibus diam et pharetra eleifend. Duis condimentum nunc condimentum dictum mattis. Vestibulum eu nulla dui. Nam euismod leo vel nisi luctus ullamcorper. Pellentesque pellentesque luctus nunc, non rhoncus nisl porta et. Duis fringilla sollicitudin diam, sodales semper sem condimentum ac. Donec dignissim dolor quam, nec mollis nisi cursus vulputate. Vivamus at metus a sem scelerisque tristique quis ut sapien. Sed pretium porta justo sed convallis. Aenean feugiat orci sit amet leo condimentum, at elementum ipsum efficitur.',
 			'chapo' => 'Lorem ipsum dolor et, consectetur adipiscing elit. Vivam consectetur adipiscing elit. Vivam euismod arcu vitae finibus. Curabitur sit amet lacinia ex.',
 			'soustitre' => "Soustitre",
-			'slug' => 'un-petit-truc',
-			'like' => 3,
+			'slug' => 'un-petit-truc'
 			]);
 	}
 

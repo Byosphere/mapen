@@ -16,6 +16,19 @@ class Articles extends Model {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['titre', 'soustitre', 'chapo', 'author', 'contenu', 'like', 'slug'];
+	protected $fillable = ['titre', 'soustitre', 'chapo', 'user_id', 'contenu', 'slug'];
+	
+	public function like()
+	{
+		
+		return $this->hasMany('App\Models\Likes', 'post_id');
+		
+	}
+	
+	public function user()
+	{
+		
+		return $this->belongsTo('App\User', 'user_id');
+	}
 
 }

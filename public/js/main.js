@@ -44,6 +44,24 @@ $(document).ready(function(){
 		$('#sideMenu').removeClass('open');
 
 	});
+	
+	$('.likeButton').click(function(){
+		
+		var likeButton = $(this);
+		$(this).toggleClass('active');
+		var addr = $( "#items" ).data( "url" );
+		var id = $(this).attr('data-id');
+		$.ajax({
+
+			url: addr+'/like',
+			data: { article_id: id }
+	
+		}).done(function(data){
+			
+			likeButton.text(data.text);
+		});
+		
+	});
   	
 });
 function maPosition(position) {

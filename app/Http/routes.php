@@ -27,7 +27,7 @@ Route::group(['prefix'=> 'articles', 'middleware'=> 'auth'], function(){
 	Route::get('{id}/mylist', 'Articles\ArticleController@userList');
 
 });
-
+Route::get('like', 'LikeController@like');
 
 Route::get('article/{id}/{slug}', 'Articles\ArticleController@index');
 

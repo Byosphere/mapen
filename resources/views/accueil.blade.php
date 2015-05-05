@@ -22,24 +22,14 @@
                     <img src="{{ asset('/img/art.jpg') }}" alt='img'>
                 </div>
             </div>
-            <?php 
-                $articleUser = null;
-                foreach ($users as $user) {
-                
-                    if($user->name == $article->author){
-
-                        $articleUser = $user;
-                    }
-                }
-            ?>
             <div class="flex-right">
                 <div>
-                    <a href="{{url('/user/'.$articleUser->id) }}" class="imgWrap"><img src="{{ asset('/img/user.svg') }}" alt="user"></a>
-                    <a href="{{url('/user/'.$articleUser->id) }}">{{ $article->author }}</a>
+                    <a href="{{url('/user/'.$article->user->id) }}" class="imgWrap"><img src="{{ asset('/img/user.svg') }}" alt="user"></a>
+                    <a href="{{url('/user/'.$article->user->id) }}">{{ $article->user->name }}</a>
                     <hr>
                 </div>
                 <div>
-                    <div id="heart"><p>{{ $article->like }}</p></div>
+                    <div id="heart"><p>{{ $article->like()->count() }}</p></div>
                 </div>
             </div>
         </header>

@@ -3,16 +3,7 @@
 @section('titrePage', 'Mapen - '.$article->titre)
 
 @section('content')
-<?php 
-    $articleUser = null;
-    foreach ($users as $user) {
-    
-        if($user->name == $article->author){
 
-            $articleUser = $user;
-        }
-    }
-?>
 <div class="article-detail">
     <article class="{{ $article->slug }} boxShadow1 full">
         <header>
@@ -23,8 +14,8 @@
                         <h3>{{ $article->soustitre }}</h3> 
                     </div>
                     <div class="auteur">
-                        <a href="{{url('/user/'.$articleUser->id) }}" class="imgWrap"><img src="{{ asset('/img/user.svg') }}" alt="user"></a>
-                        <a href="{{url('/user/'.$articleUser->id) }}">{{ $article->author }}</a>
+                        <a href="{{url('/user/'.$article->user->id) }}" class="imgWrap"><img src="{{ asset('/img/user.svg') }}" alt="user"></a>
+                        <a href="{{url('/user/'.$article->user->id) }}">{{ $article->user->name }}</a>
                     </div>
                 </div>
                 <div class="couv">
@@ -37,10 +28,15 @@
             <p>{!! $article->contenu !!}</p>
         </div>
         <div class="footer">
+            @if ($article->like()->where('user_id', '=', $article->user->id)->first() == null)
             <div>
-                <button>J'ai apprécié cet article</button>
-                <button>Partager</button>
+                <button class="likeButton" data-id="{{ $article->id }}">J'ai apprécié cet article</button>
             </div>
+            @else 
+            <div>
+                <button class="likeButton active" data-id="{{ $article->id }}">Je n'aime plus</button>
+            </div>
+            @endif
         </div>
     </article>
 </div>
