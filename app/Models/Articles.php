@@ -16,7 +16,7 @@ class Articles extends Model {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['titre', 'soustitre', 'chapo', 'user_id', 'contenu', 'slug'];
+	protected $fillable = ['titre', 'soustitre', 'chapo', 'user_id', 'contenu', 'slug', 'latitude', 'longitude'];
 	
 	public function like()
 	{

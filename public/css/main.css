@@ -96,10 +96,7 @@ fieldset {
 /*
  * Allow only vertical resizing of textareas.
  */
-
-textarea {
-    resize: vertical;
-}
+textarea {resize: vertical;}
 
 
 a {
@@ -108,15 +105,17 @@ a {
     color: #E65100;
 }
 
+
+/*
+ * Système d'ombrage Google material design
+ */
 .boxShadow1 {box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);}
 .boxShadow2 {box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
 .boxShadow3 {box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);}
 .boxShadow4 {box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
 .boxShadow5 {box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);}
 
-input[type="text"]:focus, input[type="password"]:focus, textarea:focus, button:focus{
-	outline: none;
-}
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus, button:focus{outline: none;}
 
 button {
 
@@ -147,6 +146,13 @@ button.fake {
     box-shadow: none;
     font-weight: bold;
 
+}
+
+.sheet {
+
+    padding: 2rem;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .intro {
@@ -472,13 +478,19 @@ aside .author {
     position: relative;
     padding-bottom: 100px;
     min-height: 100%;
+    border-bottom: 3px solid #E65100;
 }
 
-.today {
+.entete {
 
     width: 100%;
     padding: 1rem 2rem 0 2.2rem;
     margin: 0;
+    text-transform: uppercase;
+    font-family: 'Exo', sans-serif;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    font-size: 2rem;
 }
 
 .head {
@@ -488,7 +500,7 @@ aside .author {
     border-bottom: 1px solid rgba(0,0,0,0.12);
     padding-right: 150px;
     padding-bottom: 80px;
-    background-color: rgba(236,239,241,0.2);
+    background: url('../img/shattered.png') repeat;
 }
 
 .head h3 {
@@ -511,6 +523,12 @@ aside .author {
 .default-content header {
     
     margin-bottom: 2rem;
+}
+
+.default {
+   
+   margin-top: -100px !important;
+   background-color: white;
 }
 
 .listeArticles {
@@ -582,14 +600,14 @@ article.full .couv {
     margin: 1rem 1% 2rem 1%;
 }
 
-.entete {
+.topHead {
 
     overflow: hidden;
     display: flex;
     justify-content:space-between;
 }
 
-.entete .auteur {
+.topHead .auteur {
 
     padding: 1rem;
     text-align: center;
@@ -800,12 +818,6 @@ textarea {
     background-color: transparent;
     border-bottom:1px solid #757575;
 }
-.sheet {
-
-    min-width: 70%;
-    padding: 2rem;
-    margin: 2rem;
-}
 
 span.errors {
 
@@ -817,6 +829,15 @@ span.errors {
 
     border-bottom:1px solid red;
 }
+
+/* ==========================================================================
+   profil
+   ========================================================================== */
+   
+
+   
+   
+   
 /* ==========================================================================
    Liste news
    ========================================================================== */
@@ -852,9 +873,9 @@ span.errors {
 footer {
 
     margin-top: 40px;
-    height: 50px;
+    height: 60px;
     width: 100%;
-    background-color: #2a2d32;
+    background: url('../img/shattered.png');
     color: white;
     position: absolute;
     bottom: 0;

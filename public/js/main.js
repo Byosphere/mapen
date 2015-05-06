@@ -62,12 +62,14 @@ $(document).ready(function(){
 		});
 		
 	});
+
   	
 });
 function maPosition(position) {
 
 	//$.post("http://www.votredomaine.com/position.php",{lat:position.coords.latitude,lng:position.coords.longitude});
-	$('#geoloc').html("Latitude : "+parseInt(position.coords.latitude)+' Longitude : '+parseInt(position.coords.longitude));
+	//$('#geoloc').html("Latitude : "+parseInt(position.coords.latitude)+' Longitude : '+parseInt(position.coords.longitude));
+	$('.geoloc').attr('value', parseInt(position.coords.latitude)+'_'+parseInt(position.coords.longitude));
 }
 
 function setListeContinue(){

@@ -56,15 +56,13 @@
                 </li>
                 @endif
                 <li class="{{ Request::is('home') ? 'active' : '' }}" ><a href="{{url('/home') }}">Accueil</a></li>
-                <li class="{{ Request::is('article/random') ? 'active' : '' }}"><a href="{{url('/article/random') }}">Article au hasard</a></li>
                 @unless(Auth::check())
                 <li <li class="{{ Request::is('auth/register*') ? 'active' : ''  }}"><a href="{{url('/auth/register') }}">Devenir rédacteur</a></li>
                 @endunless
                 @if (Auth::check())
-                <li><a href="{{url('/user/'.Auth::user()->id) }}">Changer de région</a></li>
+                <li class="{{ Request::is('user/'.Auth::user()->id) ? 'active' : '' }}" ><a href="{{url('/user/'.Auth::user()->id) }}">Profil</a></li>
                 <li class="{{ Request::is('articles/write') ? 'active' : '' }}" ><a href="{{url('/articles/write') }}">Rédiger une actu</a></li>
                 <li class="{{ Request::is('articles/'.Auth::user()->id.'/mylist') ? 'active' : '' }}" ><a href="{{url('/articles/'.Auth::user()->id.'/mylist') }}">Voir ma liste d'actus</a></li>
-                <li class="{{ Request::is('user/'.Auth::user()->id) ? 'active' : '' }}" ><a href="{{url('/user/'.Auth::user()->id) }}">Préférences</a></li>
                 <li><a href="{{ url('/auth/logout') }}">Se déconnecter</a></li>
                 @endif
             </ul>

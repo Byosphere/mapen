@@ -16,11 +16,13 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-//		User::create([
-//			'email' => 'dreamlike.swarm@gmail.com',
-//			'name' => 'Yohann',
-//			'password' =>  \Hash::make('admin'),
-//			]);
+		User::create([
+			'email' => 'dreamlike.swarm@gmail.com',
+			'name' => 'Yohann',
+			'password' =>  \Hash::make('admin'),
+			'latitude' => 0,
+			'longitude' => 49
+			]);
 
 		Articles::create([
 			'titre' => 'Un titre',

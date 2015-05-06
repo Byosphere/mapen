@@ -1,13 +1,14 @@
 @extends('master')
 @section('pageTitre', 'Mapen - Rédiger un article')
 @section('content')
-<div class="default-content">
-    <div class="sheet boxShadow1">
-        <header>
-            <h2>Rédiger un nouvel article</h2>
-            <hr>
-        </header>
-        {!! Form::open(array('url'=>url('articles/create'), 'class'=>'default write')) !!}
+<div>
+    <div class="head">
+    	<h2 class="entete">Rédiger un nouvel article</h2>
+	</div>
+    <div class="default sheet boxShadow1">
+        {!! Form::open(array('url'=>url('articles/create'), 'class'=>'write')) !!}
+        
+        <input type="hidden" name='geoloc' value='' class='geoloc'>
         <div class="group {{ $errors->has('titre') ? 'error' : '' }}">      
             <input type="text" required name="titre" value="{{ old('titre') }}">
             <label>Titre</label>

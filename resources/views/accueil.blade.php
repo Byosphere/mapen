@@ -2,7 +2,7 @@
 @section('titrePage', 'Mapen - Accueil')
 @section('content')
 <div class="head">
-    <h2 class="today">Actualités du </h2>
+    <h2 class="entete">Actualités des alentours </h2>
     @if(Auth::check())
     <a href="{{url('/articles/write') }}" class="more buttonNew boxShadow2">&#9997;</a>
     @else

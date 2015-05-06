@@ -8,7 +8,7 @@
     <article class="{{ $article->slug }} boxShadow1 full">
         <header>
             <div class="flex-left">
-                <div class="entete">
+                <div class="topHead">
                     <div class="titles">
                         <h2><a href="{{url('/article/'.$article->id.'/'.$article->slug) }}">{{ $article->titre }}</a></h2>
                         <h3>{{ $article->soustitre }}</h3> 

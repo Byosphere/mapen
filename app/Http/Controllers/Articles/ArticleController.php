@@ -86,12 +86,22 @@ class ArticleController extends Controller {
 		  return redirect()->back()->withErrors($validation)->withInput();
 		} else {
 			
+			$latLon = explode('_',Request::input('geoloc'));
+			if($latLon[0] == ''){
+				
+				$latLon[0] = $user->latitude;
+				$latLon[1] = $user->longitude;
+
+			}
+			
 			$article = Articles::create([
 				'titre' => Request::input('titre'),
 				'soustitre' => Request::input('soustitre'),
 				'contenu' => Request::input('contenu'),
 				'slug' => Str::slug(Request::input('titre')),
 				'chapo'=> Request::input('chapo'),
+				'latitude'=> $latLon[0],
+				'longitude'=> $latLon[1]
 			]);
 			$article->user()->associate($user);
 			$article->save();
@@ -102,10 +112,8 @@ class ArticleController extends Controller {
 	public function userList($userId=null)
 	{
 		$user= User::find($userId);
-		$userArticles = Articles::get()->where('author', $user->name);
 		return view('userListe', array(
-				'user' =>$user,
-				'articles'=>$userArticles
+				'user' =>$user
 			));
 
 	}
