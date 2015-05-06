@@ -46,7 +46,7 @@
                 @if (Auth::check())
                 <li class="connexion {{ Request::is('user/'.Auth::user()->id) ? 'active' : ''  }}">
                     <a href="{{url('/user/'.Auth::user()->id) }}">
-                        <div><img src="{{ asset('/img/user.svg') }}" alt="user"></div>
+                        <div><img src="{{ isset(Auth::user()->profilePicture->fullPath) ? Auth::user()->profilePicture->fullPath : asset('/img/user.svg') }}" alt="user"></div>
                         <p>{{ Auth::user()->name }}</p>
                     </a>
                 </li>

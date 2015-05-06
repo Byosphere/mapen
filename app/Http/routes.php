@@ -41,3 +41,5 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+Route::resource('profilePicture', 'ProfilePictureController', ['except'=>['index','show']]);
+

@@ -21,14 +21,14 @@
             <div class="flex-left">
                 <h2>{{ $article->titre }}</h2>
                 <h3>{{ $article->soustitre }}</h3> 
-                <!-- <a href="#">Partager</a> / <a href="#">Ajouter aux pins</a> -->
+
                 <div class="couv">
                     <img src="{{ asset('/img/art.jpg') }}" alt='img'>
                 </div>
             </div>
             <div class="flex-right">
                 <div>
-                    <a href="{{url('/user/'.$article->user->id) }}" class="imgWrap"><img src="{{ asset('/img/user.svg') }}" alt="user"></a>
+                    <a href="{{url('/user/'.$article->user->id) }}" class="imgWrap"><img src="{{ $article->user->profilePicture->fullPath or asset('/img/user.svg') }}" alt="userPicture"></a>
                     <a href="{{url('/user/'.$article->user->id) }}">{{ $article->user->name }}</a>
                     <hr>
                 </div>
