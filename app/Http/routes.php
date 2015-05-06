@@ -30,6 +30,8 @@ Route::group(['prefix'=> 'articles', 'middleware'=> 'auth'], function(){
 Route::get('like', 'LikeController@like');
 
 Route::get('article/{id}/{slug}', 'Articles\ArticleController@index');
+Route::get('article/delete/{id}/{slug}', 'Articles\ArticleController@delete');
+Route::get('article/modify/{id}/{slug}', 'Articles\ArticleController@modify');
 
 
 Route::get('user/{id}', 'Users\UsersController@index');

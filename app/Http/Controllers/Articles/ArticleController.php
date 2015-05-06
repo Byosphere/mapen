@@ -63,8 +63,9 @@ class ArticleController extends Controller {
 			return redirect('/');
 
 		} else {
-
-			return view('write');
+			
+			$user = Auth::user();
+			return view('write')->with(['user'=>$user]);
 
 		}
 	}
@@ -105,8 +106,35 @@ class ArticleController extends Controller {
 			]);
 			$article->user()->associate($user);
 			$article->save();
+			Session::flash('message', 'Votre article a bien été publié !');
 			return redirect('/articles/'.$user->id.'/mylist');
 		}
+	}
+	
+	
+	public function modify($id, $slug)
+	{
+		
+		
+	}
+	
+	public function delete($id, $slug)
+	{
+		$user = Auth::user();
+		try{
+
+			$article = Articles::findOrFail($id);
+
+		}catch(ModelNotFoundException $e){
+
+			App::abort(404);
+
+		}
+		$article->delete();
+		
+		Session::flash('message', "L'article a bien été supprimé");
+		
+		return redirect('/articles/'.$user->id.'/mylist');
 	}
 
 	public function userList($userId=null)

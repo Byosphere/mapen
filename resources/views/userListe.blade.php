@@ -3,6 +3,9 @@
 <div class="userList">
 	<div class="head">
     	<h2 class="entete">Actualités publiées par {{ $user->name }} </h2>
+		@if(Session::has('message'))
+		<div class="alert boxShadow2">{{ Session::get('message') }}</div>
+		@endif
 	</div>
 	<div class="sheet boxShadow1 default">
 		<table>
@@ -18,7 +21,9 @@
 					<td><a href="{{url('/article/'.$article->id.'/'.$article->slug) }}">{{$article->titre}}</a></td>
 					<td>{{ $article->created_at }}</td>
 					<td>{{ $article->like()->count() }} étoiles</td>
-					<td><button>Modifier</button> <button>Supprimer</button></td>
+					<td><a href="{{url('/article/modify/'.$article->id.'/'.$article->slug) }}">Modifier</a> 
+						<a href="{{url('/article/delete/'.$article->id.'/'.$article->slug) }}">Supprimer</a>
+					</td>
 				</tr>
 			@endforeach
 			</tbody>

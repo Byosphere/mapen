@@ -1,8 +1,14 @@
 @extends('master')
 
 @section('content')
-<div class="default-content">
-	<div class="sheet boxShadow1">
+<div>
+	<div class="head">
+		<h2 class="entete">Devenir rédacteur</h2>
+		@if(Session::has('message'))
+		    <div class="alert">{{ Session::get('message') }}</div>
+		@endif
+	</div>
+	<div class="sheet boxShadow1 default">
 		@if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -13,12 +19,7 @@
 				</ul>
 			</div>
 		@endif
-
-		<form class="default" role="form" method="POST" action="{{ url('/auth/register') }}">
-			<header>
-				<h2>Inscription</h2>
-				<hr>	
-			</header>
+		<form role="form" method="POST" action="{{ url('/auth/register') }}">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 			<div class="group">      

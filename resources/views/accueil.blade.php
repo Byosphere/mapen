@@ -3,10 +3,14 @@
 @section('content')
 <div class="head">
     <h2 class="entete">Actualités des alentours </h2>
+    @if(Session::has('message'))
+        <div class="alert">{{ Session::get('message') }}</div>
+    @endif
     @if(Auth::check())
     <a href="{{url('/articles/write') }}" class="more buttonNew boxShadow2">&#9997;</a>
     @else
-    <h3>En étant connecté, les articles peuvent s'afficher par défaut pour votre localisation (<span id="geoloc"></span>) - <a href="{{url('/auth/register') }}">S'inscrire</a></h3>
+    <h3>En étant connecté, les articles peuvent s'afficher par défaut pour votre localisation (<span id="geoloc"></span>) - <a href="{{url('/auth/register') }}">S'inscrire</a> - 
+        <a href="{{url('/auth/login') }}">Se connecter</a></h3>
     @endif
 </div>
 <div class="listeArticles">

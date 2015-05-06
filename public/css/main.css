@@ -498,17 +498,29 @@ aside .author {
     min-height: 200px;
     width: 100%;
     border-bottom: 1px solid rgba(0,0,0,0.12);
-    padding-right: 150px;
     padding-bottom: 80px;
     background: url('../img/shattered.png') repeat;
 }
 
 .head h3 {
 
-    margin-left: 2.2rem;
+    margin: 0.5rem 2.2rem;
     color: #757575;
     font-size: 0.9rem;
-    margin-top: 0.5rem;
+}
+
+.head .alert {
+    
+    margin: 0.2rem 10%;
+    display: inline-block;
+    width: 80%;
+    background-color: #F44336;
+    height: 30px;
+    border-radius: 2px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    color: white;
 }
 
 .default-content {
@@ -527,14 +539,14 @@ aside .author {
 
 .default {
    
-   margin-top: -100px !important;
+   margin-top: -80px !important;
    background-color: white;
 }
 
 .listeArticles {
 
     padding: 0 1rem;
-    margin-top: -100px;
+    margin-top: -80px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -726,13 +738,14 @@ article .footer {
    Formulaires
    ========================================================================== */
 
-.group, .textarea {
+.group {
 
     position:relative;
-    margin-bottom:45px;
+    width: 100%;
+    margin: 2rem;
 
 }
-form {
+form, .textarea {
 
     position: relative;
 }
@@ -789,20 +802,22 @@ input[type=checkbox] {
 form.write input[type=submit] {
 
     border: none;
-    position: absolute;
-    bottom: -70px;
-    left: 50%;
+    position: fixed;
+    bottom: 10%;
+    right: 4%;
     margin-left: -40px;
     width: 80px;
     height: 80px;
     border-radius: 50%;
     z-index: 2;
-    background-color: white;
     min-width: 80px;
     line-height: 60px;
     text-align: center;
     color: #E65100;
 
+    background: url('../img/post.svg') no-repeat center;
+    background-size: 50%;
+    background-color: white;
 }
 
 form.write textarea {
@@ -828,6 +843,11 @@ span.errors {
 .group.error input, .textarea.error textarea {
 
     border-bottom:1px solid red;
+}
+
+article.new.full {
+    
+    margin: -80px auto 0 auto !important;
 }
 
 /* ==========================================================================
@@ -941,7 +961,15 @@ footer {
     }
 
     .title img {padding: 0.5rem 0.2rem 0.5rem 1rem;}
-
-    .group {max-width: 60%;}
+    
+    
+    form.write input[type=submit] {
+    
+        bottom: 10px;
+        
+        left: 50%;
+        position: absolute;
+    
+    }
 
 }

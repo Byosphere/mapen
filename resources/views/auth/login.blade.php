@@ -1,13 +1,15 @@
 @extends('master')
 
 @section('content')
-<div class="default-content">
-	<div class="sheet boxShadow1">
+<div>
+	<div class="head">
+		<h2 class="entete">Se connecter </h2>
+		@if(Session::has('message'))
+		    <div class="alert">{{ Session::get('message') }}</div>
+		@endif
+	</div>
+	<div class="sheet boxShadow1 default">
 		<form role="form" method="POST" action="{{ url('/auth/login') }}">
-			<header>
-				<h2>Se connecter</h2>		
-				<hr>
-			</header>
 			@if (count($errors) > 0)
 				<div class="alert alert-danger">
 					<strong>Whoops!</strong> There were some problems with your input.<br><br>
