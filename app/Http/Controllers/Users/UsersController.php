@@ -23,7 +23,7 @@ class UsersController extends Controller {
 	public function index($id=null)
 	{
 	  	$user = User::find($id);
-    	return view('profile')->with('user', $user);
+    	return view('profile')->with(['user'=> $user, 'articles'=> $user->article]);
 	}
 
 }

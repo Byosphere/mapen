@@ -21,6 +21,7 @@ class CreateArticleTable extends Migration {
 			$table->integer('latitude');
 			$table->integer('longitude');
 			$table->string('slug');
+			$table->mediumText('cover');
 		    $table->string('soustitre');
 			$table->timestamps();
 		});

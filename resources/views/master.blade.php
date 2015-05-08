@@ -46,13 +46,13 @@
                 @if (Auth::check())
                 <li class="connexion {{ Request::is('user/'.Auth::user()->id) ? 'active' : ''  }}">
                     <a href="{{url('/user/'.Auth::user()->id) }}">
-                        <div><img src="{{ isset(Auth::user()->profilePicture->fullPath) ? Auth::user()->profilePicture->fullPath : asset('/img/user.svg') }}" alt="user"></div>
+                        <div class='imgWrap'><img src="{{ isset(Auth::user()->profilePicture->fullPath) ? Auth::user()->profilePicture->fullPath : asset('/img/user.svg') }}" alt="user"></div>
                         <p>{{ Auth::user()->name }}</p>
                     </a>
                 </li>
                 @else
                 <li class="connexion {{ Request::is('auth/login*') ? 'active' : ''  }}">
-                    <a href="{{url('/auth/login') }}"><div><img src="{{ asset('/img/user.svg') }}" alt="user"></div><p>Se connecter</p></a>
+                    <a href="{{url('/auth/login') }}"><div class='imgWrap'><img src="{{ asset('/img/user.svg') }}" alt="user"></div><p>Se connecter</p></a>
                 </li>
                 @endif
                 <li class="{{ Request::is('home') ? 'active' : '' }}" ><a href="{{url('/home') }}">Accueil</a></li>

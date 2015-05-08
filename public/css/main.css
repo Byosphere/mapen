@@ -148,6 +148,12 @@ button.fake {
 
 }
 
+button.disable {
+    
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
 .sheet {
 
     padding: 2rem;
@@ -360,7 +366,8 @@ body {
 
 .main-menu .connexion img {
 
-    width: 50px;
+    min-width: 100%;
+    min-height: 100%;
     opacity: 0.3;
 
 }
@@ -511,7 +518,7 @@ aside .author {
 
 .head .alert {
     
-    margin: 0.2rem 10%;
+    margin: 0.6rem 10% 0.2rem 10%;
     display: inline-block;
     width: 80%;
     background-color: #F44336;
@@ -636,6 +643,11 @@ article.full .couv {
     padding:2.2rem 2.2rem 60px 2.2rem;
 }
 
+.texte {
+    
+    margin-bottom: 25px;
+}
+
 .more {
 
     position: absolute;
@@ -682,14 +694,16 @@ article.full .couv {
     height: 80px;
     width: 80px;
     overflow: hidden;
-    display: block;
+    display: flex;
     border-radius: 50%;
     border: 1px solid rgba(0,0,0,0.1);
     margin: 0 auto;
+    justify-content:center;
 }
 .imgWrap img {
 
-    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 article .footer {
@@ -820,11 +834,6 @@ form.write input[type=submit] {
     background-color: white;
 }
 
-form.write textarea {
-
-    margin-bottom: 30px;
-}
-
 textarea {
 
     width: 100%;
@@ -854,9 +863,63 @@ article.new.full {
    profil
    ========================================================================== */
    
+   .input-button {
+       
+       background-color: #E65100;
+       cursor: pointer;
+       display: flex;
+       width: 150px;
+       height: 30px;
+       margin: 10px auto;
+   }
+   .input-button:before {
+       
+       content:"Uploader une image";
+       font-size: 0.9rem;
+       position: absolute;
+       width: 150px;
+       margin-top: 5px;
+       text-align: center;
+       color: white;
+   } 
+   
+   input[type=file] {
+       
+      opacity: 0;
+      
+   }
+ 
+.listeArticles.profil {
+    
+    margin-top: 0;
+}
+   
+.auteur.top {
+    
+    display: flex;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: white;
+    margin: -100px auto 0 auto;
+    width: 200px;
+    height: 200px;
+    align-items:center;
+    justify-content:center;
+}
 
-   
-   
+.auteur.top a {
+    
+    overflow: hidden;
+    border-radius: 50%;
+    width: 175px;
+    height: 175px;
+}
+
+.auteur.top a img {
+    
+    width: 100%;
+    min-height: 100%;
+}
    
 /* ==========================================================================
    Liste news
@@ -965,8 +1028,7 @@ footer {
     
     form.write input[type=submit] {
     
-        bottom: 10px;
-        
+        bottom: -38px;
         left: 50%;
         position: absolute;
     

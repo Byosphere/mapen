@@ -16,16 +16,22 @@
 				<th>Actions</th>
 			</thead>
 			<tbody>
-			@foreach ($user->article as $article)
-				<tr>
-					<td><a href="{{url('/article/'.$article->id.'/'.$article->slug) }}">{{$article->titre}}</a></td>
-					<td>{{ $article->created_at }}</td>
-					<td>{{ $article->like()->count() }} étoiles</td>
-					<td><a href="{{url('/article/modify/'.$article->id.'/'.$article->slug) }}">Modifier</a> 
-						<a href="{{url('/article/delete/'.$article->id.'/'.$article->slug) }}">Supprimer</a>
-					</td>
-				</tr>
-			@endforeach
+			@if(count($user->article)==0)
+			
+				<tr><td>Vous n'avez encore publié aucun article</td></tr>
+			@else
+			
+				@foreach ($user->article as $article)
+					<tr>
+						<td><a href="{{url('/article/'.$article->id.'/'.$article->slug) }}">{{$article->titre}}</a></td>
+						<td>{{ $article->created_at }}</td>
+						<td>{{ $article->like()->count() }} étoiles</td>
+						<td><a href="{{url('/article/modify/'.$article->id.'/'.$article->slug) }}">Modifier</a> 
+							<a href="{{url('/article/delete/'.$article->id.'/'.$article->slug) }}">Supprimer</a>
+						</td>
+					</tr>
+				@endforeach
+			@endif
 			</tbody>
 		</table>
 	</div>

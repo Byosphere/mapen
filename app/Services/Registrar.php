@@ -2,6 +2,7 @@
 
 use App\User;
 use Validator;
+use Request;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 
 class Registrar implements RegistrarContract {
@@ -29,10 +30,20 @@ class Registrar implements RegistrarContract {
 	 */
 	public function create(array $data)
 	{
+		$latLon = explode('_', $data['geoloc']);
+		if($latLon[0] == ''){
+			
+			$latLon[0] = 0;
+			$latLon[1] = 0;
+
+		}
 		return User::create([
 			'name' => $data['name'],
 			'email' => $data['email'],
 			'password' => bcrypt($data['password']),
+			'latitude' => $latLon[0],
+			'longitude' => $latLon[1],
+			'status' => 'user'
 		]);
 	}
 

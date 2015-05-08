@@ -21,7 +21,7 @@
 		@endif
 		<form role="form" method="POST" action="{{ url('/auth/register') }}">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+			<input type="hidden" name='geoloc' value='' class='geoloc'>
 			<div class="group">      
 				<input type="text" required name="name" value="{{ old('name') }}">
 				<span class="highlight"></span>

@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="auteur">
-                        <a href="{{url('/user/'.$user->id) }}" class="imgWrap"><img src="{{ asset('/img/user.svg') }}" alt="user"></a>
+                        <a href="{{url('/user/'.$user->id) }}" class="imgWrap"><img src="{{isset($user->profilePicture->fullPath) ? $user->profilePicture->fullPath : asset('/img/user.svg') }}" alt="user"></a>
                         <a href="{{url('/user/'.$user->id) }}">{{ $user->name }}</a>
                     </div>
                 </div>

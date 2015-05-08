@@ -20,8 +20,9 @@ class DatabaseSeeder extends Seeder {
 			'email' => 'dreamlike.swarm@gmail.com',
 			'name' => 'Yohann',
 			'password' =>  \Hash::make('admin'),
-			'latitude' => 0,
-			'longitude' => 49
+			'status' => 'user',
+			'latitude' => 49,
+			'longitude' => 0
 			]);
 
 		Articles::create([
