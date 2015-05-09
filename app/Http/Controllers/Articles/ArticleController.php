@@ -7,6 +7,7 @@ use Request;
 use Session;
 use Validator;
 use App\User;
+use Input;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Articles;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -78,15 +79,16 @@ class ArticleController extends Controller {
 			'titre' => 'required|min:5|max:40',
 			'soustitre' => 'required|min:5|max:100',
 			'contenu' => 'required|min:200',
-			'chapo' => 'required|max:300'
+			'chapo' => 'required|max:300',
+			'couv' => 'required|image'
 		);
-
 		$validation = Validator::make(Request::all(), $regles);
 
 		if ($validation->fails()) {
 		  return redirect()->back()->withErrors($validation)->withInput();
 		} else {
 			
+			// gestion de la géoloc
 			$latLon = explode('_',Request::input('geoloc'));
 			if($latLon[0] == ''){
 				
@@ -94,7 +96,20 @@ class ArticleController extends Controller {
 				$latLon[1] = $user->longitude;
 
 			}
-			
+			// gestion de la couv
+			$couv = Input::file('couv');
+			// checking file is valid.
+			if ($couv->isValid()) {
+				
+				$destinationPath = public_path().'\uploads\couvertures'; // upload path
+				$extension = $couv->getClientOriginalExtension(); // getting image extension
+				$fileName = uniqid('couv-').'.'.$extension; // renameing image
+				$uploadSuccess = $couv->move($destinationPath, $fileName);
+				if($uploadSuccess){
+					$path = asset('uploads/couvertures').'/'.$fileName;
+				}
+			}
+
 			$article = Articles::create([
 				'titre' => Request::input('titre'),
 				'soustitre' => Request::input('soustitre'),
@@ -102,7 +117,8 @@ class ArticleController extends Controller {
 				'slug' => Str::slug(Request::input('titre')),
 				'chapo'=> Request::input('chapo'),
 				'latitude'=> $latLon[0],
-				'longitude'=> $latLon[1]
+				'longitude'=> $latLon[1],
+				'cover' => $path
 			]);
 			$article->user()->associate($user);
 			$article->save();

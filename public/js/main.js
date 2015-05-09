@@ -63,7 +63,7 @@ $(document).ready(function(){
 		
 	});
 	
-	$('input[type=file]').change(function() {
+	$('.profile-picture input[type=file]').change(function() {
 		$('.fileForm').submit();
 	});
 	
@@ -92,10 +92,11 @@ function setListeContinue(){
 		var articles = "";
 		for (var key in data.data){
 			var auteur = "<span class='author'>"+data.data[key].author+"</span>";
-			var img = "<div class='wrap'><img src='#' alt='article'></div>";
+			var img = "<div class='wrap'><img src='"+data.data[key].cover+"' alt='article'></div>";
 			var titre = "<h4>"+data.data[key].titre+"</h4>";
+			var soustitre = "<h5>"+data.data[key].soustitre+"</h5>";
 			var infos = "<span class='timeLoc'>date : "+data.data[key].created_at+"latitude :"+data.data[key].latitude+" / longitude :"+data.data[key].longitude+"</span>";
-			articles += "<li><a href='"+addr+'/article/'+data.data[key].id+'/'+data.data[key].slug+"'>"+auteur+img+titre+infos+"</a></li>"; 
+			articles += "<li><a href='"+addr+'/article/'+data.data[key].id+'/'+data.data[key].slug+"'>"+auteur+img+titre+soustitre+infos+"</a></li>"; 
 		}
 		$('#items').html(articles);
 		console.log(data);

@@ -1,4 +1,5 @@
 @extends('master')
+@section('titrePage', 'Mapen - Profil de '.$user->name)
 @section('content')
 <div class="profile">
 	<div class="head">
@@ -16,7 +17,7 @@
                 <a href="{{url('/user/'.$user->id) }}" class="imgWrap"><img src="{{ isset($user->profilePicture->fullPath) ? $user->profilePicture->fullPath : asset('/img/user.svg') }}" alt="user"></a>
             </div>
 			
-			<div class="input-button boxShadow2">
+			<div class="input-button boxShadow2 profile-picture">
 				{!! Form::file('image') !!}
 				<p class="errors">{!!$errors->first('image')!!}</p>
 			</div>

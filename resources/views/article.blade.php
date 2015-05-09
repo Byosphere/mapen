@@ -7,22 +7,20 @@
 <div class="article-detail">
     <article class="{{ $article->slug }} boxShadow1 full">
         <header>
-            <div class="flex-left">
-                <div class="topHead">
-                    <div class="titles">
-                        <h2><a href="{{url('/article/'.$article->id.'/'.$article->slug) }}">{{ $article->titre }}</a></h2>
-                        <h3>{{ $article->soustitre }}</h3> 
-                    </div>
-                    <div class="auteur">
-                        <a href="{{url('/user/'.$article->user->id) }}" class="imgWrap"><img src="{{ isset($article->user->profilePicture->fullPath) ? $article->user->profilePicture->fullPath : asset('/img/user.svg') }}" alt="user"></a>
-                        <a href="{{url('/user/'.$article->user->id) }}">{{ $article->user->name }}</a>
-                    </div>
+            <div class="topHead">
+                <div class="titles">
+                    <h2>{{ $article->titre }}</h2>
+                    <h3>{{ $article->soustitre }}</h3> 
                 </div>
-                <div class="couv">
-                    <img src="{{ asset('/img/art.jpg') }}" alt='img'>
+                <div class="auteur">
+                    <a href="{{url('/user/'.$article->user->id) }}" class="imgWrap"><img src="{{ isset($article->user->profilePicture->fullPath) ? $article->user->profilePicture->fullPath : asset('/img/user.svg') }}" alt="user"></a>
+                    <a href="{{url('/user/'.$article->user->id) }}">{{ $article->user->name }}</a>
                 </div>
             </div>
         </header>
+        <div class="couv">
+            <img src="{{ $article->cover }}" alt='img'>
+        </div>
         <div class="texte">
             <p class="intro">{{ $article->chapo }}</p>
             <p>{!! $article->contenu !!}</p>

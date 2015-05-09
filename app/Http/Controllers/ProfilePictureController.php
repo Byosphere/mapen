@@ -42,7 +42,7 @@ class ProfilePictureController extends Controller {
 				
 				$destinationPath = public_path().'\uploads\profilePictures'; // upload path
 				$extension = $image->getClientOriginalExtension(); // getting image extension
-				$fileName = rand(11111,99999).'.'.$extension; // renameing image
+				$fileName = uniqid('profile-').'.'.$extension; // renameing image
 				$uploadSuccess = $image->move($destinationPath, $fileName);
 				if($uploadSuccess){
 					

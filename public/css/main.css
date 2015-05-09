@@ -426,6 +426,14 @@ aside h3 {
     font-family: 'Exo', sans-serif;
 }
 
+aside h5 {
+    
+    color:#757575;
+    float: left;
+    margin: 0;
+    font-size: 0.7rem;
+}
+
 aside ul {
 
     display: flex;
@@ -502,7 +510,7 @@ aside .author {
 
 .head {
 
-    min-height: 200px;
+    min-height: 215px;
     width: 100%;
     border-bottom: 1px solid rgba(0,0,0,0.12);
     padding-bottom: 80px;
@@ -511,7 +519,7 @@ aside .author {
 
 .head h3 {
 
-    margin: 0.5rem 2.2rem;
+    margin: 0.5rem 0 0 2.2rem;
     color: #757575;
     font-size: 0.9rem;
 }
@@ -612,6 +620,18 @@ article.full .couv {
 
     max-height: 400px;
 }
+.couv.empty p {
+    
+    display: inline-block;
+    margin: 0 0 10px 0;
+}
+.couv.empty input{
+    
+    display: inline-block;
+    border: none;
+    padding: 0;
+    width: auto;
+}
 
 .content article.full {
 
@@ -624,6 +644,7 @@ article.full .couv {
     overflow: hidden;
     display: flex;
     justify-content:space-between;
+    width: 100%;
 }
 
 .topHead .auteur {
@@ -666,9 +687,9 @@ article.full .couv {
 
 .buttonNew {
 
-    top: 20px;
-    right: 50px;
-    left: auto;
+    top: 60px;
+    left: 50%;
+    margin-right: 40px;
 }
 
 .flex-right {
@@ -859,6 +880,11 @@ article.new.full {
     margin: -80px auto 0 auto !important;
 }
 
+article.new header {
+    
+    width: 100%;
+}
+
 /* ==========================================================================
    profil
    ========================================================================== */
@@ -883,7 +909,7 @@ article.new.full {
        color: white;
    } 
    
-   input[type=file] {
+.profile-picture input[type=file] {
        
       opacity: 0;
       
@@ -1032,6 +1058,12 @@ footer {
         left: 50%;
         position: absolute;
     
+    }
+    .buttonNew {
+    
+        top: 30px;
+        right: 20px;
+        left:auto;
     }
 
 }

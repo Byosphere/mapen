@@ -23,7 +23,8 @@ class UsersController extends Controller {
 	public function index($id=null)
 	{
 	  	$user = User::find($id);
-    	return view('profile')->with(['user'=> $user, 'articles'=> $user->article]);
+		$lastArticles = $user->article()->orderBy('id', 'desc')->take(6)->get();
+    	return view('profile')->with(['user'=> $user, 'articles'=> $lastArticles]);
 	}
 
 }
