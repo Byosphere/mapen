@@ -35,6 +35,7 @@ Route::get('article/modify/{id}/{slug}', 'Articles\ArticleController@modify');
 
 
 Route::get('user/{id}', 'Users\UsersController@index');
+Route::post('user/{id}/geoloc', 'Users\UsersController@geoloc');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

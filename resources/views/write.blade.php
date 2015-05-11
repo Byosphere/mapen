@@ -35,7 +35,7 @@
         </div>
         <div class="texte">
             <div class="textarea {{ $errors->has('chapo') ? 'error' : '' }}">
-                <textarea required name="chapo" value="{{ old('chapo') }}"></textarea>
+                <textarea required name="chapo">{{ old('chapo') }}</textarea>
                 <label>Chapo</label>
                 <span class="errors">{{$errors->first('chapo')}}</span>
             </div>

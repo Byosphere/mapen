@@ -14,7 +14,7 @@
 		
 			{!! Form::open(array('url'=>route('profilePicture.store'),'method'=>'POST', 'files'=>true, 'class'=>'fileForm')) !!}
 			<div class="auteur">
-                <a href="{{url('/user/'.$user->id) }}" class="imgWrap"><img src="{{ isset($user->profilePicture->fullPath) ? $user->profilePicture->fullPath : asset('/img/user.svg') }}" alt="user"></a>
+                <div class="imgWrap"><img src="{{ isset($user->profilePicture->fullPath) ? $user->profilePicture->fullPath : asset('/img/user.svg') }}" alt="user"></div>
             </div>
 			
 			<div class="input-button boxShadow2 profile-picture">
@@ -23,7 +23,15 @@
 			</div>
 			<hr>
 			{!! Form::close() !!}
-		</div>
+			{!! Form::open(array('url'=>url('user/'.$user->id.'/geoloc'))) !!}
+			<div>
+				Géolocalisation par défaut : <input type="text" name='lat' class='inline' placeholder="{{ $user->latitude }}" maxlength="2" required> / <input type="text" name='lon' class='inline' maxlength="2" placeholder="{{ $user->longitude }}" required>
+				<input type="submit" class='input-button btn boxShadow2' value="Modifier">
+				<span class="errors">{{$errors->first('lat')}}</span>
+					<span class="errors">{{$errors->first('lon')}}</span>
+			</div>
+			
+			{!! Form::close() !!}
 	</div>
 	<!-- profil public -->
 	@else

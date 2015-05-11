@@ -946,6 +946,27 @@ article.new header {
     width: 100%;
     min-height: 100%;
 }
+
+input.inline {
+    
+    display: inline-block;
+    min-width: 30px;
+    max-width: 30px;
+    padding-bottom: 0;
+    border: none;
+    margin-left: 8px;
+}
+
+input.btn {
+    
+    display: inline-block;
+    min-width: 80px;
+    padding: 0;
+    margin:0;
+    border: none;
+    color: white;
+    width: 120px;
+}
    
 /* ==========================================================================
    Liste news
