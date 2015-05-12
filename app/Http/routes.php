@@ -22,16 +22,16 @@ Route::get('articles/liste', 'Articles\ArticleController@liste');
 
 Route::group(['prefix'=> 'articles', 'middleware'=> 'auth'], function(){
 
-	Route::get('write', 'Articles\ArticleController@write');
+	Route::get('write/{id?}', 'Articles\ArticleController@write');
 	Route::post('create', 'Articles\ArticleController@create');
 	Route::get('{id}/mylist', 'Articles\ArticleController@userList');
+	Route::post('modify/{id}', 'Articles\ArticleController@modify');
 
 });
 Route::get('like', 'LikeController@like');
 
 Route::get('article/{id}/{slug}', 'Articles\ArticleController@index');
 Route::get('article/delete/{id}/{slug}', 'Articles\ArticleController@delete');
-Route::get('article/modify/{id}/{slug}', 'Articles\ArticleController@modify');
 
 
 Route::get('user/{id}', 'Users\UsersController@index');

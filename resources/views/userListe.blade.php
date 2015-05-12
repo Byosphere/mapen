@@ -26,7 +26,7 @@
 						<td><a href="{{url('/article/'.$article->id.'/'.$article->slug) }}">{{$article->titre}}</a></td>
 						<td>{{ $article->created_at }}</td>
 						<td>{{ $article->like()->count() }} étoiles</td>
-						<td><a href="{{url('/article/modify/'.$article->id.'/'.$article->slug) }}">Modifier</a> 
+						<td><a href="{{url('/articles/write/'.$article->id) }}">Modifier</a> - 
 							<a href="{{url('/article/delete/'.$article->id.'/'.$article->slug) }}">Supprimer</a>
 						</td>
 					</tr>

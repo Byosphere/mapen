@@ -36,7 +36,7 @@ class ArticleController extends Controller {
 
 		}catch(ModelNotFoundException $e){
 
-			App::abort(404);
+			\App::abort(404);
 
 		}
 		return view('article')->with(['article'=> $article, 'users' => $users]);
@@ -56,7 +56,7 @@ class ArticleController extends Controller {
 	}
 
 
-	public function write()
+	public function write($id=-1)
 	{
 
 		if (Auth::guest()) {
@@ -66,7 +66,16 @@ class ArticleController extends Controller {
 		} else {
 			
 			$user = Auth::user();
-			return view('write')->with(['user'=>$user]);
+			
+			if($id ==-1){
+				
+				return view('write')->with(['user'=>$user]);
+				
+			} else {
+				
+				$article = Articles::findOrFail($id);
+				return view('modify')->with(['article'=>$article, 'user'=>$user]);
+			}
 
 		}
 	}
@@ -128,10 +137,48 @@ class ArticleController extends Controller {
 	}
 	
 	
-	public function modify($id, $slug)
+	public function modify($id)
 	{
+		$article = Articles::findOrFail($id);
+		$user = Auth::user();
+		$regles = array(
+			'titre' => 'required|min:5|max:40',
+			'soustitre' => 'required|min:5|max:100',
+			'contenu' => 'required|min:200',
+			'chapo' => 'required|max:300'
+		);
 		
+		$validation = Validator::make(Request::all(), $regles);
 		
+		if ($validation->fails()) {
+		  return redirect()->back()->withErrors($validation)->withInput();
+		} else {
+			
+			if(Input::file('couv')){
+				// gestion de la couv
+				$couv = Input::file('couv');
+				// checking file is valid.
+				if ($couv->isValid()) {
+					
+					$destinationPath = public_path().'\uploads\couvertures'; // upload path
+					$extension = $couv->getClientOriginalExtension(); // getting image extension
+					$fileName = uniqid('couv-').'.'.$extension; // renameing image
+					$uploadSuccess = $couv->move($destinationPath, $fileName);
+					if($uploadSuccess){
+						$path = asset('uploads/couvertures').'/'.$fileName;
+						$article->cover = $path;
+					}
+				}
+			}
+			$article->titre = Request::input('titre');
+			$article->soustitre = Request::input('soustitre');
+			$article->contenu = Request::input('contenu');
+			$article->slug = Str::slug(Request::input('titre'));
+			$article->chapo = Request::input('chapo');
+			$article->save();
+			Session::flash('message', "L'article a bien été modifié !");
+			return redirect('/articles/'.$user->id.'/mylist');
+		}
 	}
 	
 	public function delete($id, $slug)
@@ -146,6 +193,8 @@ class ArticleController extends Controller {
 			App::abort(404);
 
 		}
+		$couv = public_path()."\\uploads\couvertures\\".preg_replace("#http(.+)couvertures/#i","",$article->cover);
+		unlink($couv);
 		$article->delete();
 		
 		Session::flash('message', "L'article a bien été supprimé");
