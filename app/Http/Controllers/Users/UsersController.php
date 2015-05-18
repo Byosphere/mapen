@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\User;
 use Request;
+use Auth;
 use Validator;
 use Session;
 
@@ -51,6 +52,24 @@ class UsersController extends Controller {
 			return redirect()->back();
 		}
 
+	}
+	
+	public function ban($id, $bool)
+	{
+		$user = User::find($id);
+		
+		if(Auth::user()->status=='admin' && $user->status != 'admin'){
+
+			intval($bool) ? $user->status = 'ban' : $user->status = 'user';
+			
+			$user->save();
+			return redirect()->back();
+			
+		} else {
+			
+			return redirect()->back();
+		}
+		
 	}
 
 }

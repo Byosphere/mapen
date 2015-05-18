@@ -66,17 +66,20 @@ class ArticleController extends Controller {
 		} else {
 			
 			$user = Auth::user();
-			
-			if($id ==-1){
-				
-				return view('write')->with(['user'=>$user]);
-				
+			if($user->status!='ban') {
+				if($id ==-1){
+					
+					return view('write')->with(['user'=>$user]);
+					
+				} else {
+					
+					$article = Articles::findOrFail($id);
+					return view('modify')->with(['article'=>$article, 'user'=>$user]);
+				}
 			} else {
-				
-				$article = Articles::findOrFail($id);
-				return view('modify')->with(['article'=>$article, 'user'=>$user]);
+				Session::flash('message', "Votre compte a été bloqué, veuillez contacter l'assistance !");
+				return redirect()->back();
 			}
-
 		}
 	}
 
@@ -193,7 +196,7 @@ class ArticleController extends Controller {
 			App::abort(404);
 
 		}
-		if($article->user == $user){
+		if($article->user == $user || $user->status == 'admin'){
 			$couv = public_path()."\\uploads\couvertures\\".preg_replace("#http(.+)couvertures/#i","",$article->cover);
 			unlink($couv);
 			$article->delete();

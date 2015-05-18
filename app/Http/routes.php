@@ -35,6 +35,7 @@ Route::get('article/delete/{id}/{slug}', 'Articles\ArticleController@delete');
 
 
 Route::get('user/{id}', 'Users\UsersController@index');
+Route::get('user/{id}/ban/{bool}', 'Users\UsersController@ban');
 Route::post('user/{id}/geoloc', 'Users\UsersController@geoloc');
 
 Route::controllers([

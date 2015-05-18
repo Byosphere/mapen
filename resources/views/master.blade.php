@@ -63,9 +63,6 @@
                 <li class="{{ Request::is('user/'.Auth::user()->id) ? 'active' : '' }}" ><a href="{{url('/user/'.Auth::user()->id) }}">Profil</a></li>
                 <li class="{{ Request::is('articles/write') ? 'active' : '' }}" ><a href="{{url('/articles/write') }}">Rédiger une actu</a></li>
                 <li class="{{ Request::is('articles/'.Auth::user()->id.'/mylist') ? 'active' : '' }}" ><a href="{{url('/articles/'.Auth::user()->id.'/mylist') }}">Voir ma liste d'actus</a></li>
-                @if (Auth::user()->status == 'admin')
-                <li><a href="{{ url('/articles/moderer') }}">Modération</a></li>
-                @endif
                 <li><a href="{{ url('/auth/logout') }}">Se déconnecter</a></li>
                 @endif
             </ul>

@@ -30,12 +30,20 @@
                 @if ($article->like()->where('user_id', '=', $article->user->id)->first() == null)
                 <div>
                     <button class="likeButton" data-id="{{ $article->id }}">J'ai apprécié cet article</button>
-                </div>
                 @else 
                 <div>
                     <button class="likeButton active" data-id="{{ $article->id }}">Je n'aime plus</button>
-                </div>
+                
                 @endif
+                @if(Auth::user()->status=='admin')
+                    <a href="{{ url('/article/delete/'.$article->id.'/'.$article->slug) }}"> Supprimer l'article </a> |
+                    @if($article->user->status=='ban')
+                    <a href="{{ url('/user/'.$article->user->id.'/ban/0') }}"> Débloquer l'utilisateur </a>
+                    @else
+                    <a href="{{ url('/user/'.$article->user->id.'/ban/1') }}"> Bloquer l'utilisateur </a>
+                    @endif
+                @endif
+                </div>
            @else
                 <div>
                     <button class="disable" data-id="{{ $article->id }}">J'ai apprécié cet article</button>
