@@ -19,10 +19,19 @@ class DatabaseSeeder extends Seeder {
 		User::create([
 			'email' => 'dreamlike.swarm@gmail.com',
 			'name' => 'Yohann',
-			'password' =>  \Hash::make('admin'),
+			'password' =>  \Hash::make('user'),
 			'status' => 'user',
 			'latitude' => 49,
 			'longitude' => 0
+			]);
+		
+		User::create([
+			'email' => 'truc.machin@gmail.com',
+			'name' => 'John',
+			'password' =>  \Hash::make('admin'),
+			'status' => 'admin',
+			'latitude' => 40,
+			'longitude' => 12
 			]);
 
 		Articles::create([
@@ -37,7 +46,7 @@ class DatabaseSeeder extends Seeder {
 
 		Articles::create([
 			'titre' => 'Une autre News',
-			'user_id' => 1,
+			'user_id' => 2,
 			'contenu' => 'Lorem ipsum Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex. Aenean finibus diam et pharetra eleifend. Duis condimentum nunc condimentum dictum mattis. Vestibulum eu nulla dui. Nam euismod leo vel nisi luctus ullamcorper. Pellentesque pellentesque luctus nunc, non rhoncus nisl porta et. Duis fringilla sollicitudin diam, sodales semper sem condimentum ac. Donec dignissim dolor quam, nec mollis nisi cursus vulputate. Vivamus at metus a sem scelerisque tristique quis ut sapien. Sed pretium porta justo sed convallis. Aenean feugiat orci sit amet leo condimentum, at elementum ipsum efficitur.',
 			'chapo' => 'Lorem ipsum consectetur adipiscing elit. Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex. Bla balbalbalbal',
 			'soustitre' => "Soustitre",
@@ -47,7 +56,7 @@ class DatabaseSeeder extends Seeder {
 
 		Articles::create([
 			'titre' => 'Un petit truc',
-			'user_id' => 1,
+			'user_id' => 2,
 			'contenu' => 'Lorem iet, consectetur adipiscing elit. Vivampsum dolor sit aet, consectetur adipiscing elit. Vivamctetur adipiscing elit. Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex. Aenean finibus diam et pharetra eleifend. Duis condimentum nunc condimentum dictum mattis. Vestibulum eu nulla dui. Nam euismod leo vel nisi luctus ullamcorper. Pellentesque pellentesque luctus nunc, non rhoncus nisl porta et. Duis fringilla sollicitudin diam, sodales semper sem condimentum ac. Donec dignissim dolor quam, nec mollis nisi cursus vulputate. Vivamus at metus a sem scelerisque tristique quis ut sapien. Sed pretium porta justo sed convallis. Aenean feugiat orci sit amet leo condimentum, at elementum ipsum efficitur.',
 			'chapo' => 'Lorem ipsum dolor et, consectetur adipiscing elit. Vivam consectetur adipiscing elit. Vivam euismod arcu vitae finibus. Curabitur sit amet lacinia ex.',
 			'soustitre' => "Soustitre",
@@ -87,7 +96,7 @@ class DatabaseSeeder extends Seeder {
 
 		Articles::create([
 			'titre' => 'lqmjdsmqkdmq',
-			'user_id' => 1,
+			'user_id' => 2,
 			'contenu' => 'Lorem iet, consectetur adipiscing elit. Vivampsum dolor sit aet, consectetur adipiscing elit. Vivamctetur adipiscing elit. Vivamus dictum euismod arcu vitae finibus. Curabitur sit amet lacinia ex. Aenean finibus diam et pharetra eleifend. Duis condimentum nunc condimentum dictum mattis. Vestibulum eu nulla dui. Nam euismod leo vel nisi luctus ullamcorper. Pellentesque pellentesque luctus nunc, non rhoncus nisl porta et. Duis fringilla sollicitudin diam, sodales semper sem condimentum ac. Donec dignissim dolor quam, nec mollis nisi cursus vulputate. Vivamus at metus a sem scelerisque tristique quis ut sapien. Sed pretium porta justo sed convallis. Aenean feugiat orci sit amet leo condimentum, at elementum ipsum efficitur.',
 			'chapo' => 'Lorem ipsum dolor et, consectetur adipiscing elit. Vivam consectetur adipiscing elit. Vivam euismod arcu vitae finibus. Curabitur sit amet lacinia ex.',
 			'soustitre' => "Soustitre",

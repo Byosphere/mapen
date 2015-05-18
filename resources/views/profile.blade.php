@@ -48,7 +48,7 @@
 		            <h3>{{ $article->soustitre }}</h3> 
 		
 		            <div class="couv">
-		                <img src="{{ asset('/img/art.jpg') }}" alt='img'>
+		                <img src="{{ $article->cover }}" alt='img'>
 		            </div>
 		        </div>
 		        <div class="flex-right">

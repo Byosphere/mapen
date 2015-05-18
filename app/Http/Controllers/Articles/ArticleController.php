@@ -61,7 +61,7 @@ class ArticleController extends Controller {
 
 		if (Auth::guest()) {
 
-			return redirect('/');
+			return redirect('/home');
 
 		} else {
 			
@@ -193,13 +193,20 @@ class ArticleController extends Controller {
 			App::abort(404);
 
 		}
-		$couv = public_path()."\\uploads\couvertures\\".preg_replace("#http(.+)couvertures/#i","",$article->cover);
-		unlink($couv);
-		$article->delete();
-		
-		Session::flash('message', "L'article a bien été supprimé");
-		
-		return redirect('/articles/'.$user->id.'/mylist');
+		if($article->user == $user){
+			$couv = public_path()."\\uploads\couvertures\\".preg_replace("#http(.+)couvertures/#i","",$article->cover);
+			unlink($couv);
+			$article->delete();
+			
+			Session::flash('message', "L'article a bien été supprimé");
+			
+			return redirect('/articles/'.$user->id.'/mylist');
+		} else {
+			
+			Session::flash('message', "Vous ne pouvez pas supprimer cet article !");
+			return redirect('/articles/'.$user->id.'/mylist');
+			
+		}
 	}
 
 	public function userList($userId=null)
